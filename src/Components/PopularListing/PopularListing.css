@@ -1,0 +1,82 @@
+.pop-listing-outer{
+    padding: 40px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+
+}
+
+.list-btn{
+    padding: 20px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.list-outer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    height:fit-content;
+    width: 250px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: white;
+}
+
+.card-img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-image: url('../../Assets/PopularListing/default.jpeg');
+}
+
+.card-text{
+    position: relative;
+}
+.location-icon{
+    position: absolute;    
+    top: -30px;
+    background-size: contain;
+    background-image: url('../../Assets/PopularListing/Location.png');
+    height: 80px;
+    width: 80px;
+    /* margin-bottom: 20px; */
+}
+
+.card-text{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.name{
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 200px;
+}
+
+.address{
+    text-align: center;
+    font-size:15px;
+    font-weight: 300;
+}
+
+.hr-card{
+    margin: 10px;
+    border-radius: 5px;
+    height: 5px;
+    width: 20px;
+    background-color:#E5AB2F;
+}

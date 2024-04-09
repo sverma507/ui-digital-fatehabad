@@ -1,0 +1,101 @@
+.footer{
+    padding: 10px 10px;
+    /* height: 500px; */
+    background-color: #222222;
+}
+
+.foot-1{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.foot-1-box{
+    text-align: center;
+    margin: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+    background-color: #333333;
+}
+
+.phone-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+    height: 50px;
+    width: 50px;
+    border-radius:50% ;
+    margin-bottom: 10px;
+}
+
+.phone{
+    border: 1px solid white;
+    height: 25px;
+    width: 15px;
+}
+
+.foot-2{
+    /* margin: 30px; */
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+    width: 100%;
+    border-bottom:1px solid white ;
+}
+.foot-2a{
+    color: white;
+    width: 100px;
+
+}
+
+.foot-2-head{
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+.foot-sub-outer{
+    color: white;
+    width: 20%
+}
+
+.foot-sub{
+    display: flex;
+    width: fit-content;
+}
+
+.foot-input{
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+    height: 50px;
+    font-size: 20px;
+}
+
+.foot-btn{
+    background-color: skyblue;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foot-3{
+    text-align: center;
+    padding: 10px;
+    color: gray;
+    /* margin-bottom: 10px; */
+}
+
+.foot-main-text{
+    color: white;
+}
