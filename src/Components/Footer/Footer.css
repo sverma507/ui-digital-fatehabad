@@ -7,6 +7,7 @@
 .foot-1{
     margin-top: 40px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -43,6 +44,7 @@
 .foot-2{
     /* margin: 30px; */
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 30px;
     width: 100%;
@@ -50,18 +52,28 @@
 }
 .foot-2a{
     color: white;
-    width: 100px;
-
+    width: 150px;
+    @media screen and (max-width:768px) {
+        margin-top: 30px;
+    }
 }
 
 .foot-2-head{
     font-size: 20px;
     margin-bottom: 50px;
+    @media screen and (max-width:768px) {
+        margin-bottom: 10px;
+    }
 }
 
 .foot-sub-outer{
     color: white;
-    width: 20%
+    width: 30%;
+    @media screen and (max-width:768px) {
+        display: block;
+        width: 50%;
+        margin-top: 30px;
+    }
 }
 
 .foot-sub{
@@ -76,6 +88,12 @@
     border: none;
     height: 50px;
     font-size: 20px;
+    @media screen and (max-width:768px) {
+        
+        margin-left: -95px;
+        padding: 5px;
+        height: 35px;
+    }
 }
 
 .foot-btn{
@@ -87,6 +105,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width:768px) {
+        width: 70px;
+        height: 35px;
+    }
 }
 
 .foot-3{

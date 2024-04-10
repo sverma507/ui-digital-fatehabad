@@ -1,6 +1,6 @@
 .hero{
     background-image: url('../../Assets/HeroSection/Herobg.jpg');
-    height: 500px;
+    /* height: 500px; */
     background-size: cover;
    
 }
