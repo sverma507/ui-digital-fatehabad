@@ -4,12 +4,13 @@ import Navbar from "./Components/Navbar/Navbar";
 import HomePage from "./Pages/HomePage";
 import PopularCategory from "./Components/PopularCategory/PopularCategory";
 import PopularListing from "./Components/PopularListing/PopularListing";
+import Listinfo from "./Components/Listinfo/Listinfo";
 function App() {
   return (
     <Router>
        <Navbar/>
-      <Routes>
-        <Route
+       <Routes>
+        {/* <Route
           exact
           path="/"
           element={<HomePage/>}
@@ -23,6 +24,11 @@ function App() {
           exact
           path="/listing"
           element={<PopularListing/>}
+        ></Route>  */}
+        <Route
+          exact
+          path="/"
+          element={<Listinfo/>}
         ></Route>
       </Routes>
     </Router>

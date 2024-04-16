@@ -29,7 +29,7 @@ function Footer() {
                 <div className='foot-2-head'>About</div>
                 <div className='foot-2-text'>Out story Awards Our Team Career</div>
             </div>
-            <div className='foot-2a'>
+            <div className='foot-2a'>y
                 <div className='foot-2-head'>Company</div>
                 <div className='foot-2-text'>Our services Clients Contact Press</div>
             </div>

@@ -1,19 +1,51 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import './PopularListing.css'
+// import { addDoc, updateDoc } from "firebase/firestore";
+import { collection, getDocs,doc } from "firebase/firestore";
+import { getFirestore,} from "firebase/firestore";
+import { app } from "../../Firebase";
 function PopularListing() {
-    const arr=[{name:"M M College", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"D N College", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Govt College", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Poltech College", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Hanuman Electrician", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Balbir Electrician", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Ganpati Book Depo", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Govt School Dhangar", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Govt Girls School Dhangar", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Govt Girls School Dhangar", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"New Bus Stand", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-    {name:"Court Fatehabad", address:"Block C, Ardee City, Sector 52, Gurugram, Haryana 122003",},
-]
+  const [list,setList]=useState(null);
+//   let obj= {
+//     name:"",
+//     bname:"",
+//     bcategory:"",
+//     bowner:"",
+//     baddress:"",
+//     bm_number:"",
+//     balternate_m_number:"",
+// }
+// let [info,setInfo]=useState(
+//     {
+//         name:"",
+//         bname:"",
+//         bcategory:"",
+//         bowner:"",
+//         baddress:"",
+//         bm_number:"",
+//         balternate_m_number:"",
+//     })
+  
+useEffect(() => {
+  get();
+}, []);
+
+const get = async () => {
+  const db = getFirestore(app);
+  const cateref = collection(db, 'all_lists');
+  const snapshot = await getDocs(cateref);
+  // console.log("snapshot=>",snapshot);
+  const data = snapshot.docs.map((item) => {
+      return (
+          {
+              id: item.id,
+              ...item.data(),
+          }
+      )
+  })
+  setList(data);
+};
+  // console.log("list=>",list);
   return (
     <>
       <div className='pop-listing-outer'>
@@ -31,15 +63,15 @@ function PopularListing() {
         </div>
         <div className='list-outer'>
         {
-            arr.map((item,index)=>{
+            list&&list.map((item,index)=>{
                 return(
                     <div className='card'>
                         <div className='card-img'></div>
                         <div className='card-text'>
                             <div className='location-icon'></div>
-                            <div className='name'>{item.name}</div>
+                            <div className='name'>{item.data.name}</div>
                             <div className='hr-card'></div>
-                            <div className='address'>{item.address}</div>
+                            <div className='address'>{item.data.baddress}</div>
                         </div>
                     </div>
                 );

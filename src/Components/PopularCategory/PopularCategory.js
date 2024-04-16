@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
+import { collection, getDocs,doc } from "firebase/firestore";
+import { getFirestore,} from "firebase/firestore";
+import { app } from "../../Firebase";
 import './PopularCategory.css'
 import { useNavigate } from 'react-router-dom'
 function PopularCategory( props) {
   const navigate=useNavigate();
-  const a=[{pop_cate:"Academy"},{pop_cate:"Accoutant & Ca"},{pop_cate:"Automobile"},{pop_cate:"Building material"},{pop_cate:"Books"},{pop_cate:"Colleges"},{pop_cate:"Computer Laptops"},{pop_cate:"Electricians"},{pop_cate:"Furniture"},{pop_cate:"General Storage"},{pop_cate:"Event"},{pop_cate:"Hotels"},{pop_cate:"Hosptal"}]
+  const [list,setList] =useState(null);
   const go_categories=()=>{navigate('/categories')}
+  useEffect(() => {
+    get();
+  }, []);
+  
+  const get = async () => {
+    const db = getFirestore(app);
+    const cateref = collection(db, 'categories');
+    const snapshot = await getDocs(cateref);
+    const data = snapshot.docs.map((item) => {
+        return (
+            {
+                id: item.id,
+                ...item.data(),
+            }
+        )
+    })
+    setList(data);
+  };
+
+  console.log("list=>",list);
   return (
     <>
       <div className='pop-outer'>
@@ -12,10 +35,10 @@ function PopularCategory( props) {
             <div className='hr'></div>
             <div className='pop-items'>
                 {
-                    a.map((item,index)=>{
+                    list&&list.map((item,index)=>{
                        return(
                         <div className='item' key={index}>
-                            {item.pop_cate}
+                            {item.category}
                         </div>
                        );
                     })
