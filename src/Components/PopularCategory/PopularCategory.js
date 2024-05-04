@@ -4,6 +4,7 @@ import { getFirestore,} from "firebase/firestore";
 import { app } from "../../Firebase";
 import './PopularCategory.css'
 import { useNavigate } from 'react-router-dom'
+
 function PopularCategory( props) {
   const navigate=useNavigate();
   const [list,setList] =useState(null);
@@ -27,7 +28,11 @@ function PopularCategory( props) {
     setList(data);
   };
 
-  console.log("list=>",list);
+  const go_category=(item)=>{
+    navigate(`/${item.category}`,{state:{Category:item}})
+    // console.log("category=>",item);
+  }
+  // console.log("list=>",list);
   return (
     <>
       <div className='pop-outer'>
@@ -37,7 +42,7 @@ function PopularCategory( props) {
                 {
                     list&&list.map((item,index)=>{
                        return(
-                        <div className='item' key={index}>
+                        <div className='item' key={index} onClick={()=>{go_category(item)}}>
                             {item.category}
                         </div>
                        );

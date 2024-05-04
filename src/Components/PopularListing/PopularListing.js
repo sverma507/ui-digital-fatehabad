@@ -4,28 +4,10 @@ import './PopularListing.css'
 import { collection, getDocs,doc } from "firebase/firestore";
 import { getFirestore,} from "firebase/firestore";
 import { app } from "../../Firebase";
+import { useNavigate } from 'react-router-dom';
 function PopularListing() {
+  const navigate=useNavigate();
   const [list,setList]=useState(null);
-//   let obj= {
-//     name:"",
-//     bname:"",
-//     bcategory:"",
-//     bowner:"",
-//     baddress:"",
-//     bm_number:"",
-//     balternate_m_number:"",
-// }
-// let [info,setInfo]=useState(
-//     {
-//         name:"",
-//         bname:"",
-//         bcategory:"",
-//         bowner:"",
-//         baddress:"",
-//         bm_number:"",
-//         balternate_m_number:"",
-//     })
-  
 useEffect(() => {
   get();
 }, []);
@@ -45,6 +27,10 @@ const get = async () => {
   })
   setList(data);
 };
+
+const go_list=(index)=>{
+  navigate(`/listinfo/${list[index].id}`)
+}
   // console.log("list=>",list);
   return (
     <>
@@ -65,11 +51,11 @@ const get = async () => {
         {
             list&&list.map((item,index)=>{
                 return(
-                    <div className='card'>
+                    <div className='card' onClick={()=>{go_list(index)}}>
                         <div className='card-img'></div>
                         <div className='card-text'>
                             <div className='location-icon'></div>
-                            <div className='name'>{item.data.name}</div>
+                            <div className='name text-center'>{item.data.bname}</div>
                             <div className='hr-card'></div>
                             <div className='address'>{item.data.baddress}</div>
                         </div>
